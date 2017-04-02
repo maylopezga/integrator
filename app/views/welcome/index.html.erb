@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Toolends</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>Toolends</h1>
+  <div class="row">
+    <div class="col-sm-2">
+
+    </div>
+    <div class="col-sm-6">
+
+    </div>
+    <div class="col-sm-4">
+        <%=  image_tag "Logo_opt.jpg"%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+      <%= form_tag :action => 'index' do %>
+        <p> <h3> Nombre: </h3> <%= text_field_tag 'nombre_user', @nombre %> </p>
+        <p><h3> Contraseña: </h3><%= password_field_tag 'pas'%> </p>
+        <%= submit_tag 'Registrarse' %>
+      <% end %>
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+  <div class="row">
+    <p>
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+      <% @nombres.each do |n| %>
+        <p> <%= n.nombre %> </p>
+      <% end %>
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+<!--!DOCTYPE html>
+<html>
+  <head>
+    <title>Toolends</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Hello World!</h1>
+      <div class="row">
+        <div class="col-sm-6" style="background-color:yellow;">
+          <p>Lorem ipsum...</p>
+        </div>
+        <div class="col-sm-6" style="background-color:pink;">
+          <p>Sed ut perspiciatis...</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <h1>Toolends </h1>
+    <div class='container'-->
+      <!--div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+          <%= form_tag :action => 'index' do %>
+            <p> Nombre: <%= text_field_tag 'nombre_user', @nombre %> </p>
+            <p> Contrasena: <%= password_field_tag 'pas'%> </p>
+            <%= submit_tag 'Registrarse' %>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <% @nombres.each do |n| %>
+            <p> <%= n.nombre %> </p>
+          <% end %>
+        </div>
+        <div class="col-md-2">
+          <footer>
+            <p>By: <%= @tutor %> </p>
+          </footer>
+        </div
+
+
+
+
+      </div>
+
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+<!--p> <%= @nombre %> </p>
+<p> <%= @pass %> </p-->
