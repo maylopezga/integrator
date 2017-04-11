@@ -1,0 +1,2 @@
+class Admeafit < ApplicationRecord
+end

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admeafits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admeafits.each do |admeafit| %>
+      <tr>
+        <td><%= admeafit.name %></td>
+        <td><%= admeafit.code %></td>
+        <td><%= link_to 'Show', admeafit %></td>
+        <td><%= link_to 'Edit', edit_admeafit_path(admeafit) %></td>
+        <td><%= link_to 'Destroy', admeafit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!--%= link_to 'New Admeafit', new_admeafit_path %-->
+<!--% if @tagUID != empty %-->
+<%= link_to 'New Admeafit', new_admeafit_path%>
+<!--% end %>

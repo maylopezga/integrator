@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :students
+  resources :admeafits
   get "welcome/index"
   root 'welcome#index'
   #root :to => 'welcome#index'

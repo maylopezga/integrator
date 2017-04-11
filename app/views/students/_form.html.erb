@@ -1,0 +1,243 @@
+
+
+<html lang="es">
+
+<head>
+
+    <script>
+
+        // guardamos el id de la imagen visible
+
+        idImagenVisible="contenido1";
+
+        function mostrar(id)
+
+        {
+
+            // esconedemos la imagen visible
+
+            document.getElementById(idImagenVisible).style.display="none";
+
+            // mostramos la imagen seleccionada
+
+            document.getElementById(id).style.display="block";
+
+            // guardamos en la variable la imagen que estamos visualizando
+
+            idImagenVisible=id;
+
+        }
+
+    </script>
+
+    <style>
+
+        .oculto {display:none;}
+
+    </style>
+
+</head>
+
+ 
+
+<body>
+
+ 
+
+<form>
+
+    <input type="button" onclick="mostrar('contenido1')" value="Mostrar/ocultar contenido 1">
+
+    <input type="button" onclick="mostrar('contenido2')" value="Mostrar/ocultar contenido 2">
+
+    <input type="button" onclick="mostrar('contenido3')" value="Mostrar/ocultar contenido 3">
+
+</form>
+
+<img src="Logo_opt.jpg" id="contenido1">
+<%=  image_tag "Logo_opt.jpg"%>
+
+<img src="Logo_opt.jpg" class="oculto" id="contenido2">
+
+<img src="Logo_opt.jpg" class="oculto" id="contenido3">
+
+ 
+
+</body>
+
+</html>
+
+
+
+<!--html class="no-js">
+
+<head>
+                    <meta charset="utf-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+                    <title></title>
+                    <meta name="description" content="">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <link href='https://fonts.googleapis.com/css?family=Freckle+Face' rel='stylesheet' type='text/css'>
+                    <link rel="stylesheet" href="css/bootstrap.css">
+                    <style>
+                        body {
+                            padding-top: 50px;
+                            padding-bottom: 20px;
+                        }
+                        img.boton {
+                            width:138px;
+                            height:80px;
+                        }
+                        img.logo {
+                            width:400px;
+                            height:400px;
+                        }
+                        .btmicono p {
+                            font-family: 'Freckle Face';
+                            color: #ff0000;
+                            font-size: 22px;
+                        }
+                        #msg{
+                            color: #fff;
+                            padding:15px;
+                            font-family: 'Freckle Face';
+                            font-size: 22px;
+                        }
+                        .can{
+                            padding:25px;
+                            font-family: 'Freckle Face';
+                            font-size: 35px;
+                            color: #fff;
+                        }
+                    </style>
+                    <link rel="stylesheet" href="css/themes/cerulean.css">
+                    <link rel="stylesheet" href="css/main.css">
+                    <script src="js/lib/modernizr.js"></script>
+</head>
+
+<body> 
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+                                    
+      </div>
+      <div class="col-md-2"> 
+        <img width= "200px" src="/img/Logo.png">
+      </div>
+      <div class="col-md-7">
+        <h2>JUEGA,APRENDE Y DIVÉRTETE!!!</h2>
+        <br> CanLearn es una aplicación, donde podrás aprender jugando e interactuando; pensada para estudiantes de la básica primaria. </br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div id="ocultarRegistro" class="col-md-6 col-o">
+        <button id="toggle-register" class="btn btn-primary btn-lg">Registrate</button>
+        <div id="registro-form">
+          <form role="form">
+            <div class="form-group">
+              <label>
+                <h3>Nombre</h3>
+              </label>
+              <input id='nombreContacto' type="text" class="from-control" placeholder="ingrese su nombre">
+            </div>
+            <div class="form-gropup">
+              <label>
+                <h3>E-mail</h3>
+              </label>
+              <input id='emailContacto' type='email' class='from-control' placeholder="ingrese su email">
+            </div>
+            <div class="form-gropup">
+              <label>
+                <h3>Contraseña</h3>
+              </label>
+              <input id='contrasena' type='password' class='from-control' placeholder="ingrese su contraseña">
+            </div>
+            <div class="form-gropup">
+              <label>
+                <h3>Confirmar contaseña</h3>
+              </label>
+              <input id='confirmarContrasena' type='password' class='from-control'placeholder="ingrese de nuevo su contraseña">
+            </div>
+            <button id="ingresarContacto" class="btn btn-primary btn-lg">Ingresar contacto</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<%= form_for(student) do |f| %>
+  <% if student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cel %>
+    <%= f.text_field :cel %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<script id="contact-template" type="x-tmpl-mustache">
+                        <div class="row well">
+                            <div class="col-md-2"> 
+                                <img src="http://placehold.it/72x72" class="img-circle">
+                            </div>
+                            <div class="col-md-10">
+                                <h4>{{name}}</h4>
+                                <i class="glyphicon glyphicon-envelope"></i>
+                                <span>{{email}}</span>
+                            </div>
+                        </div>
+ </script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+  <script>
+                        window.jQuery || document.write('<script src="js/lib/jquery-1.11.0.js"><\/script>')
+  </script>
+  <script src="js/lib/mustache.js"></script>
+  <script src="js/lib/jquery-cookie.js"></script>
+  <script src="js/lib/bootstrap.js"></script>
+  <script src="js/main.js"></script>
+
+
+
+</body>
+
+</html>
