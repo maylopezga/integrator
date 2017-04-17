@@ -2,32 +2,43 @@
 
 
 class AdmeafitsController < ApplicationController
+
   before_action :set_admeafit, only: [:show, :edit, :update, :destroy]
-  #port_str = "/dev/ttyACM0"  #may be different for you
-  #baud_rate = 115200
-  #data_bits = 8
-  #stop_bits = 1
-  #parity = SerialPort::NONE
+
+
   # GET /admeafits
   # GET /admeafits.json
-  # 
-  #def tag
-   # sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
+  #
+  def tag
+    #ban = true
+    puts "entro"
 
-    #just read forever
-    #while true do
-     # while (i = sp.gets.chomp) do
-      #  i.slice!("Tag is not NDEF formatted.")
-      #  @tagUID = i
-      
-      #  puts @tagUID
+    port_str = "/dev/ttyACM0"  #may be different for you
+    baud_rate = 115200
+    data_bits = 8
+    stop_bits = 1
+    parity = SerialPort::NONE
 
-    #  end
-  #  end
+    sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
+  #  while ban do
+      while (i = sp.gets.chomp) do
+      	i.slice!("Tag is not NDEF formatted.")
+      	tagUID = i
+      	puts "el while"
+        puts tagUID
+        if tagUID.empty?
+	         ban= true
+	      else
+          return tagUID
+	      end
 
-  #  sp.closes
-    
- # end
+
+
+      end
+    #end
+  #sp.closes
+ end
+
 
 
   def index
@@ -42,6 +53,8 @@ class AdmeafitsController < ApplicationController
   # GET /admeafits/new
   def new
     @admeafit = Admeafit.new
+    @admeafit.code = tag
+    @tutor = 'Efrain, Mayerli & Santiago'
   end
 
   # GET /admeafits/1/edit
@@ -97,5 +110,7 @@ class AdmeafitsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def admeafit_params
       params.require(:admeafit).permit(:name, :code)
+
     end
+
 end
