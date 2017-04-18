@@ -55,6 +55,7 @@ class AdmeafitsController < ApplicationController
     @admeafit = Admeafit.new
     @admeafit.code = tag
     @tutor = 'Efrain, Mayerli & Santiago'
+    @bj = 'Zoi nueva'
   end
 
   # GET /admeafits/1/edit
